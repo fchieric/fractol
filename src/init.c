@@ -6,7 +6,7 @@
 /*   By: fabi <fabi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:47:58 by fabi              #+#    #+#             */
-/*   Updated: 2024/10/18 18:49:01 by fabi             ###   ########.fr       */
+/*   Updated: 2024/10/19 17:43:02 by fabi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,22 @@ void	data_init(t_fractol *fractol)
 	fractol->zoom = 1.0;
 }
 
-static void event_init(t_fractol *fractol)
+static void	event_init(t_fractol *fractol)
 {
 	mlx_hook(fractol->mlx_win, KeyPress, KeyPressMask, key_handler, fractol);
-	mlx_hook(fractol->mlx_win, DestroyNotify, StructureNotifyMask, close_handler, fractol);
-	mlx_hook(fractol->mlx_win, ButtonPress, ButtonPressMask, mouse_handler, fractol);
-	mlx_hook(fractol->mlx_win, MotionNotify, PointerMotionHintMask, track_julia, fractol);
+	mlx_hook(fractol->mlx_win, DestroyNotify, StructureNotifyMask,
+		close_handler, fractol);
+	mlx_hook(fractol->mlx_win, ButtonPress, ButtonPressMask,
+		mouse_handler, fractol);
+	mlx_hook(fractol->mlx_win, MotionNotify, PointerMotionMask,
+		track_julia, fractol);
 }
 
 void	fractol_init(t_fractol *fractol)
 {
 	fractol->mlx = mlx_init();
 	if (fractol->mlx == NULL)
-		malloc_error(); // TODO
+		malloc_error();
 	fractol->mlx_win = mlx_new_window(fractol->mlx,
 			WIDTH, HEIGHT, fractol->name);
 	if (fractol->mlx_win == NULL)

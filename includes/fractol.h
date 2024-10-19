@@ -6,7 +6,7 @@
 /*   By: fabi <fabi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:13:38 by fabi              #+#    #+#             */
-/*   Updated: 2024/10/18 19:31:07 by fabi             ###   ########.fr       */
+/*   Updated: 2024/10/19 18:15:10 by fabi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,23 @@
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-#include <X11/keysymdef.h>
+# include <X11/keysymdef.h>
+# define WIDTH 500
+# define HEIGHT 500
 
-# define WIDTH 1000
-# define HEIGHT 1000
-
-// Psychedelic color definitions in hexadecimal RGB format
-#define BLACK              0x000000
-#define WHITE              0xFFFFFF
-#define NEON_PINK          0xFF6EC7
-#define ELECTRIC_BLUE      0x7DF9FF
-#define ELECTRIC_LIME      0xCCFF00
-#define VIBRANT_ORANGE     0xFF5F1F
-#define ULTRA_VIOLET       0x6A0DAD
-#define TURQUOISE          0x40E0D0
-#define LIME_GREEN         0x32CD32
-#define DEEP_SKY_BLUE      0x00BFFF
-#define ORANGE_RED         0xFF4500
-#define INDIGO             0x4B0082
-#define VIOLET             0xEE82EE
-
+# define BLACK              0x000000
+# define WHITE              0xFFFFFF
+# define NEON_PINK          0xFF6EC7
+# define ELECTRIC_BLUE      0x7DF9FF
+# define ELECTRIC_LIME      0xCCFF00
+# define VIBRANT_ORANGE     0xFF5F1F
+# define ULTRA_VIOLET       0x6A0DAD
+# define TURQUOISE          0x40E0D0
+# define LIME_GREEN         0x32CD32
+# define DEEP_SKY_BLUE      0x00BFFF
+# define ORANGE_RED         0xFF4500
+# define INDIGO             0x4B0082
+# define VIOLET             0xEE82EE
 
 typedef struct s_complex
 {
@@ -82,7 +79,8 @@ void		fractol_init(t_fractol *fractol);
 
 //render.c
 void		fractol_render(t_fractol *fractol);
-int 	track_julia(int x, int y, t_fractol *fractol);
+int			track_julia(int x, int y, t_fractol *fractol);
+int			ft_is_space(char c);
 
 //utils.c
 t_complex	sqr_cpx(t_complex n);
